@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Jantar Mantar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="stage">
+    <canvas id="screen" width="384" height="216"></canvas>
+
+    <!-- Lobby: QR codes for both phones -->
+    <div id="lobby" class="overlay hidden">
+      <h1>JANTAR MANTAR</h1>
+      <div class="vs"><span class="gov">GOVERNMENT</span> vs <span class="cjp">COCKROACH JANTA PARTY</span></div>
+      <div class="modes">
+        <button class="mode on" data-mode="pvp">PLAYER vs PLAYER</button>
+        <button class="mode" data-mode="ai">PLAYER vs AI</button>
+      </div>
+      <div class="cards">
+        <div class="card" data-slot="1">
+          <div class="tag p1">P1</div>
+          <img class="qr" alt="QR code for player 1">
+          <div class="url"></div>
+          <div class="state">scan to join</div>
+        </div>
+        <div class="card" data-slot="2">
+          <div class="tag p2">P2</div>
+          <img class="qr" alt="QR code for player 2">
+          <div class="url"></div>
+          <div class="state">scan to join</div>
+        </div>
+        <div class="card ai-card hidden">
+          <div class="tag cpu">AI</div>
+          <div class="ai-title">DIFFICULTY</div>
+          <div class="levels"></div>
+          <div class="state">joystick ↑↓ on P1's phone</div>
+        </div>
+      </div>
+      <div id="lobby-hint" class="blink">Opening a room…</div>
+      <div id="room-code"></div>
+      <div class="foot">ESC settings</div>
+      <button class="guide-btn">📖 MOVE GUIDE</button>
+    </div>
+
+    <!-- Shown mid-match when a phone drops -->
+    <div id="rejoin" class="overlay hidden">
+      <div class="rejoin-box">
+        <div id="rejoin-title">P2 DISCONNECTED</div>
+        <img id="rejoin-qr" class="qr" alt="QR code to rejoin">
+        <div class="hint">Unlock the phone or scan again to rejoin</div>
+      </div>
+    </div>
+
+    <!-- Laptop-only pause / settings menu -->
+    <div id="menu" class="overlay hidden">
+      <div class="menu-box">
+        <div class="menu-title">PAUSED</div>
+        <ul id="menu-items"></ul>
+        <div class="foot">↑↓ choose · ←→ change · ENTER select · ESC close</div>
+      </div>
+    </div>
+
+    <!-- Arcade start card: only shown when the browser is blocking sound until the first click. -->
+    <div id="start-card" class="overlay hidden">
+      <div class="start-title">JANTAR MANTAR</div>
+      <div class="start-sub">GOVERNMENT <span>vs</span> COCKROACH JANTA PARTY</div>
+      <div class="start-press blink">PRESS ANY KEY</div>
+      <div class="start-hint">or click anywhere to start</div>
+    </div>
+  </div>
+
+  <script src="vendor/peerjs.min.js"></script>
+  <script src="vendor/qrcode.js"></script>
+  <script src="vendor/mqtt.min.js"></script>
+  <script type="module" src="game/main.js"></script>
+</body>
+</html>

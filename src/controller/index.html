@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Jantar Mantar">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#140c1c">
+  <title>Jantar Mantar Pad</title>
+  <link rel="stylesheet" href="controller.css">
+</head>
+<body>
+  <div id="pad">
+    <div id="stick-zone">
+      <div id="stick-base"><div id="stick-knob"></div></div>
+      <div class="hint">drag to move<br>↑ jump · ↓ crouch</div>
+    </div>
+
+    <div id="center">
+      <div id="badge">P?</div>
+      <div id="fighter">—</div>
+      <div id="status">connecting…</div>
+      <div id="ping"></div>
+      <div class="center-btns">
+        <button id="menu-btn" aria-label="Menu">☰ MENU</button>
+        <button id="fs" aria-label="Full screen">⛶</button>
+      </div>
+    </div>
+
+    <div id="buttons">
+      <div class="btn locked" data-bit="8" id="b-special"><span>SPECIAL</span><div class="pips"><i></i><i></i><i></i><i></i><i></i></div></div>
+      <div class="btn" data-bit="1" id="b-punch"><span>PUNCH</span></div>
+      <div class="btn" data-bit="4" id="b-block"><span>BLOCK</span></div>
+      <div class="btn" data-bit="2" id="b-kick"><span>KICK</span></div>
+    </div>
+  </div>
+
+  <div id="rotate"><div class="phone"></div>Turn your phone sideways</div>
+
+  <div id="ios-tip" class="hidden">
+    <div class="tip-title">FULL SCREEN ON IPHONE</div>
+    <ol>
+      <li>Tap <b>Share</b> <span class="share">⬆</span> at the bottom of Safari</li>
+      <li>Tap <b>Add to Home Screen</b></li>
+      <li>Open <b>Jantar Mantar</b> from your Home Screen</li>
+    </ol>
+    <div class="tip-small">It opens full screen, with no Safari bars. Keep the game screen open on the laptop, the same room.</div>
+    <div class="tip-close">tap anywhere to close</div>
+  </div>
+
+  <div id="overlay" class="hidden">
+    <div id="overlay-title"></div>
+    <div id="overlay-text"></div>
+  </div>
+
+  <script src="../vendor/peerjs.min.js"></script>
+  <script src="../vendor/mqtt.min.js"></script>
+  <script src="controller.js"></script>
+</body>
+</html>

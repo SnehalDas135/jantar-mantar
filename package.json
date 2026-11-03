@@ -1,0 +1,21 @@
+{
+  "name": "jantar-mantar",
+  "version": "1.0.0",
+  "description": "Retro 2-player fighter played with phones as controllers (WebRTC)",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "build": "node scripts/build.mjs",
+    "seal": "node scripts/seal.mjs",
+    "keygen": "node scripts/keygen.mjs",
+    "dev": "node scripts/build.mjs && node server.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "javascript-obfuscator": "^5.9.1"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}
